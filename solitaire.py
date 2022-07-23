@@ -6,27 +6,8 @@ class Card:
         "\u001b[30;1m",
         "\u001b[31m",
     ]
-    suits = [
-        "♤",
-        "♡",
-        "♧",
-        "♢",
-    ]
-    ranks = [
-        "Ⓐ",
-        "②",
-        "③",
-        "④",
-        "⑤",
-        "⑥",
-        "⑦",
-        "⑧",
-        "⑨",
-        "⑩",
-        "Ⓙ",
-        "Ⓠ",
-        "Ⓚ"
-    ]
+    suits = "♤♡♧♢";
+    ranks = "Ⓐ②③④⑤⑥⑦⑧⑨⑩ⒿⓆⓀ";
 
     def __init__(self, position):
         self.color = self.colors[position % len(self.colors)]
@@ -37,11 +18,12 @@ class Card:
     def flip(self):
         self.flipped = not self.flipped
 
+    @property
     def name(self):
         return f"{self.color}{self.rank}{self.suit}\u001b[0m"
 
     def __str__(self):
-        return self.name() if self.flipped else "X"
+        return self.name if self.flipped else "X"
 
 class Pile:
 
